@@ -355,7 +355,7 @@ a:hover {
     animation: runLeft 0.3s steps(1) infinite;
 }
 
-/* ===== БАННЕР ДЛЯ МОБИЛЬНЫХ (ПОРТРЕТ) ===== */
+
 .rotate-device-message {
     display: none;
     position: fixed;
@@ -386,97 +386,5 @@ a:hover {
     .scroll-arrow,
     .character {
         display: none !important;
-    }
-}
-
-@media (max-width: 768px) and (orientation: landscape) {
-    /* Общие шрифты - примерно в 2 раза меньше */
-    h2 {
-        font-size: 1.8rem; /* было 3rem */
-    }
-    p, li {
-        font-size: 0.8rem; /* было 1.2rem */
-    }
-    .skill-box h3, .exp-box h3, .edu-left h3, .edu-right h3 {
-        font-size: 1rem; /* было 1.5rem */
-    }
-    .contact-box h2 {
-        font-size: 1.6rem; /* было 2.5rem */
-    }
-    .contact-box p {
-        font-size: 0.8rem;
-    }
-
-    .skill-box, .exp-box {
-        width: 130px; /* было 250px */
-        padding: 8px;
-    }
-    .edu-left, .edu-right {
-        max-width: 140px; /* было 300px */
-        padding: 8px;
-    }
-    .contact-box {
-        max-width: 220px; /* было 400px */
-        padding: 12px 15px;
-        top: 15%;
-        right: 15%;
-    }
-    .section .content {
-        max-width: 280px; /* было 600px */
-        padding: 10px;
-    }
-
-    .character {
-        width: 55px;
-        height: 55px;
-    }
-    .character.corner {
-        left: 10%;
-        bottom: 5%;
-    }
-    .character.center-bottom {
-        left: 50%;
-        bottom: 5%;
-        transform: translateX(-50%);
-    }
-    .character.right-bottom {
-        left: calc(100% - 55px - 5%);
-        bottom: 5%;
-    }
-
-    #hero .content {
-        margin-left: 10%;
-    }
-    .edu-left {
-        margin-left: 5%;
-    }
-    .edu-right {
-        margin-right: 5%;
-    }
-}
-
-@media (max-width: 568px) and (orientation: landscape) {
-    .skill-box, .exp-box {
-        width: 100px;
-        padding: 5px;
-    }
-    .edu-left, .edu-right {
-        max-width: 110px;
-        padding: 5px;
-    }
-    .contact-box {
-        max-width: 170px;
-        padding: 8px 10px;
-    }
-    .section .content {
-        max-width: 200px;
-        padding: 8px;
-    }
-    .character {
-        width: 45px;
-        height: 45px;
-    }
-    .character.right-bottom {
-        left: calc(100% - 45px - 5%);
     }
 }
