@@ -355,7 +355,7 @@ a:hover {
     animation: runLeft 0.3s steps(1) infinite;
 }
 
-
+/* ===== БАННЕР ДЛЯ МОБИЛЬНЫХ (ПОРТРЕТ) ===== */
 .rotate-device-message {
     display: none;
     position: fixed;
@@ -386,5 +386,80 @@ a:hover {
     .scroll-arrow,
     .character {
         display: none !important;
+    }
+}
+
+/* ===== МАСШТАБИРОВАНИЕ ДЛЯ МОБИЛЬНЫХ (ЛАНДШАФТ) ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+    /* Масштабируем весь контент внутри .sections в 0.4 от исходного */
+    .sections {
+        transform: scale(0.4);
+        transform-origin: top left;
+        width: 250vw;  /* 1 / 0.4 = 2.5 */
+        height: 250vh;
+    }
+
+    /* Меню навигации */
+    .nav-menu {
+        transform: scale(0.4) translateX(-50%);
+        transform-origin: top left;
+        top: 5px;
+        padding: 5px 12px;
+        gap: 8px;
+    }
+    .nav-menu a {
+        font-size: 0.9rem;
+    }
+
+    /* Стрелки */
+    .scroll-arrow {
+        transform: scale(0.4) translateY(-50%);
+        transform-origin: left top;
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+    .arrow-left {
+        left: 5px;
+    }
+    .arrow-right {
+        right: 5px;
+    }
+
+    /* Персонаж */
+    .character {
+        width: 60px;
+        height: 60px;
+    }
+    .character.corner {
+        left: 10%;
+        bottom: 5%;
+    }
+    .character.center-bottom {
+        left: 50%;
+        bottom: 5%;
+        transform: translateX(-50%);
+    }
+    .character.right-bottom {
+        left: calc(100% - 60px - 5%);
+        bottom: 5%;
+    }
+
+    /* Шрифты внутри блоков дополнительно уменьшаем */
+    .section .content p,
+    .section .content li,
+    .edu-left p,
+    .edu-right p,
+    .skill-box li,
+    .exp-box p,
+    .contact-box p {
+        font-size: 0.8rem;
+    }
+    .skill-box h3,
+    .exp-box h3,
+    .edu-left h3,
+    .edu-right h3,
+    .contact-box h2 {
+        font-size: 1rem;
     }
 }
