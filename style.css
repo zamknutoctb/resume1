@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh;
     overflow-y: hidden;
     background-image: url('bg.png');
     background-size: cover;
@@ -44,7 +44,7 @@ body {
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
@@ -54,7 +54,7 @@ body {
 
 .section {
     flex: 0 0 100%;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
@@ -330,121 +330,111 @@ a:hover {
     }
 }
 
-@media (max-width: 1024px) {
-    h2 { font-size: 2rem; }
-    p, li { font-size: 0.9rem; }
-    .skill-box h3, .exp-box h3, .edu-left h3, .edu-right h3 { font-size: 1.1rem; }
-    .contact-box h2 { font-size: 1.8rem; }
-    .contact-box p { font-size: 0.9rem; }
-
-    .edu-left, .edu-right {
-        max-width: 200px;
-        padding: 15px;
+@media (max-width: 1024px) and (orientation: landscape) {
+    .nav-menu {
+        transform: scale(0.7) translateX(-50%);
+        transform-origin: top center;
     }
-    .skills-container, .experience-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        padding: 20px;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow-y: auto; 
+    .scroll-arrow {
+        transform: scale(0.7) translateY(-50%);
+        transform-origin: center;
+    }
+    .character {
+        width: 112px;
+        height: 112px;
+        background-size: 672px 112px;
+    }
+    .character.corner {
+        left: 15%;
+    }
+    .character.center-bottom {
+        left: 50%;
+    }
+    .character.right-bottom {
+        left: calc(100% - 112px - 7%);
     }
     .skill-box, .exp-box {
-        position: static; 
-        width: 200px; 
-        margin: 5px;
+        width: 200px;
+        padding: 15px;
     }
-    .skill-box.top-left,
-    .skill-box.top-right,
-    .skill-box.center-left,
-    .skill-box.center-right,
-    .exp-box.top-left,
-    .exp-box.top-right,
-    .exp-box.center-left,
-    .exp-box.center-right {
-        top: auto;
-        left: auto;
-        right: auto;
-        transform: none;
+    .edu-left, .edu-right {
+        max-width: 240px;
     }
-
     .contact-box {
+        max-width: 320px;
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .nav-menu {
+        transform: scale(0.6) translateX(-50%);
+    }
+    .scroll-arrow {
+        transform: scale(0.6) translateY(-50%);
+    }
+    .character {
+        width: 96px;
+        height: 96px;
+        background-size: 576px 96px;
+    }
+    .character.corner {
+        left: 10%;
+    }
+    .character.center-bottom {
+        left: 50%;
+    }
+    .character.right-bottom {
+        left: calc(100% - 96px - 5%);
+    }
+    .skill-box, .exp-box {
+        width: 160px;
+        padding: 12px;
+    }
+    .edu-left, .edu-right {
+        max-width: 180px;
+        padding: 12px;
+    }
+    .contact-box {
+        max-width: 240px;
+        padding: 15px 20px;
         top: 15%;
         right: 10%;
-        max-width: 280px;
-        padding: 20px;
     }
+}
 
-    #hero .content {
-        margin-left: 10%;
+@media (max-width: 480px) and (orientation: landscape) {
+    .nav-menu {
+        transform: scale(0.5) translateX(-50%);
+        top: 10px;
     }
-
+    .scroll-arrow {
+        transform: scale(0.5) translateY(-50%);
+    }
     .character {
         width: 80px;
         height: 80px;
         background-size: 480px 80px;
     }
     .character.corner {
-        left: 5%;
-        bottom: 5%;
+        left: 8%;
     }
     .character.center-bottom {
         left: 50%;
-        bottom: 5%;
-        transform: translateX(-50%);
     }
     .character.right-bottom {
-        left: calc(100% - 80px - 5%);
-        bottom: 5%;
+        left: calc(100% - 80px - 4%);
     }
-}
-
-@media (max-width: 768px) and (orientation: landscape) {
     .skill-box, .exp-box {
-        width: 140px;
-        padding: 10px;
+        width: 120px;
+        padding: 8px;
     }
     .edu-left, .edu-right {
         max-width: 140px;
-        padding: 10px;
-    }
-    .contact-box {
-        max-width: 220px;
-        padding: 15px;
-    }
-    .character {
-        width: 60px;
-        height: 60px;
-        background-size: 360px 60px;
-    }
-    .character.right-bottom {
-        left: calc(100% - 60px - 5%);
-    }
-}
-
-@media (max-width: 480px) and (orientation: landscape) {
-    .skill-box, .exp-box {
-        width: 110px;
-        padding: 8px;
-    }
-    .edu-left, .edu-right {
-        max-width: 110px;
         padding: 8px;
     }
     .contact-box {
-        max-width: 160px;
-        padding: 10px;
-    }
-    .character {
-        width: 50px;
-        height: 50px;
-        background-size: 300px 50px;
-    }
-    .character.right-bottom {
-        left: calc(100% - 50px - 5%);
+        max-width: 180px;
+        padding: 10px 15px;
     }
 }
