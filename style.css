@@ -96,6 +96,7 @@ body {
     margin-left: 20%;
 }
 
+/* Образование: два блока по краям */
 .edu-container {
     position: relative;
     z-index: 2;
@@ -120,64 +121,15 @@ body {
     margin-right: 5%;
 }
 
-.skills-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-}
-.skill-box {
-    position: absolute;
-    width: 250px;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
-    border-radius: 12px;
-    padding: 20px;
-    color: white;
-    text-shadow: 1px 1px 2px black;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-.skill-box h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #ffd966;
-    border-bottom: 2px solid rgba(255,255,255,0.3);
-    padding-bottom: 5px;
-}
-.skill-box ul {
-    list-style-type: none;
-    padding: 0;
-}
-.skill-box li {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 5px;
-}
-.skill-box.top-left {
-    top: 10%;
-    left: 5%;
-}
-.skill-box.top-right {
-    top: 10%;
-    right: 5%;
-}
-.skill-box.center-left {
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-}
-.skill-box.center-right {
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
-}
-
+/* Навыки и Опыт — по умолчанию абсолютное позиционирование (десктоп) */
+.skills-container,
 .experience-container {
     position: relative;
     width: 100%;
     height: 100%;
     z-index: 2;
 }
+.skill-box,
 .exp-box {
     position: absolute;
     width: 250px;
@@ -189,6 +141,7 @@ body {
     text-shadow: 1px 1px 2px black;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+.skill-box h3,
 .exp-box h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
@@ -196,29 +149,24 @@ body {
     border-bottom: 2px solid rgba(255,255,255,0.3);
     padding-bottom: 5px;
 }
+.skill-box ul,
 .exp-box p {
+    list-style-type: none;
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 5px;
 }
-.exp-box.top-left {
-    top: 10%;
-    left: 5%;
-}
-.exp-box.top-right {
-    top: 10%;
-    right: 5%;
-}
-.exp-box.center-left {
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-}
-.exp-box.center-right {
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
-}
+.skill-box.top-left { top: 10%; left: 5%; }
+.skill-box.top-right { top: 10%; right: 5%; }
+.skill-box.center-left { top: 50%; left: 5%; transform: translateY(-50%); }
+.skill-box.center-right { top: 50%; right: 5%; transform: translateY(-50%); }
+
+.exp-box.top-left { top: 10%; left: 5%; }
+.exp-box.top-right { top: 10%; right: 5%; }
+.exp-box.center-left { top: 50%; left: 5%; transform: translateY(-50%); }
+.exp-box.center-right { top: 50%; right: 5%; transform: translateY(-50%); }
+
+/* Контакты — абсолютный блок справа сверху */
 .contact-box {
     position: absolute;
     top: 20%;
@@ -313,7 +261,6 @@ a:hover {
     image-rendering: crisp-edges;
     transition: left 0.5s ease, bottom 0.5s ease, transform 0.5s ease;
 }
-
 .character.corner {
     left: 20%;
     bottom: 5%;
@@ -355,7 +302,6 @@ a:hover {
     animation: runLeft 0.3s steps(1) infinite;
 }
 
-/* ===== БАННЕР ДЛЯ МОБИЛЬНЫХ (ПОРТРЕТ) ===== */
 .rotate-device-message {
     display: none;
     position: fixed;
@@ -372,11 +318,9 @@ a:hover {
     font-size: 2rem;
     padding: 20px;
 }
-
 .message-content p {
     margin: 10px 0;
 }
-
 @media (orientation: portrait) and (max-width: 768px) {
     .rotate-device-message {
         display: flex;
@@ -389,50 +333,65 @@ a:hover {
     }
 }
 
-/* ===== МАСШТАБИРОВАНИЕ ДЛЯ МОБИЛЬНЫХ (ЛАНДШАФТ) ===== */
-@media (max-width: 768px) and (orientation: landscape) {
-    /* Масштабируем весь контент внутри .sections в 0.4 от исходного */
-    .sections {
-        transform: scale(0.4);
-        transform-origin: top left;
-        width: 250vw;  /* 1 / 0.4 = 2.5 */
-        height: 250vh;
+@media (max-width: 1024px) {
+    h2 { font-size: 2rem; }
+    p, li { font-size: 0.9rem; }
+    .skill-box h3, .exp-box h3, .edu-left h3, .edu-right h3 { font-size: 1.1rem; }
+    .contact-box h2 { font-size: 1.8rem; }
+    .contact-box p { font-size: 0.9rem; }
+
+    .edu-left, .edu-right {
+        max-width: 200px;
+        padding: 15px;
+    }
+    .skills-container, .experience-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto; 
+    }
+    .skill-box, .exp-box {
+        position: static; 
+        width: 200px; 
+        margin: 5px;
+    }
+    .skill-box.top-left,
+    .skill-box.top-right,
+    .skill-box.center-left,
+    .skill-box.center-right,
+    .exp-box.top-left,
+    .exp-box.top-right,
+    .exp-box.center-left,
+    .exp-box.center-right {
+        top: auto;
+        left: auto;
+        right: auto;
+        transform: none;
     }
 
-    /* Меню навигации */
-    .nav-menu {
-        transform: scale(0.4) translateX(-50%);
-        transform-origin: top left;
-        top: 5px;
-        padding: 5px 12px;
-        gap: 8px;
-    }
-    .nav-menu a {
-        font-size: 0.9rem;
+    .contact-box {
+        top: 15%;
+        right: 10%;
+        max-width: 280px;
+        padding: 20px;
     }
 
-    /* Стрелки */
-    .scroll-arrow {
-        transform: scale(0.4) translateY(-50%);
-        transform-origin: left top;
-        width: 30px;
-        height: 30px;
-        font-size: 16px;
-    }
-    .arrow-left {
-        left: 5px;
-    }
-    .arrow-right {
-        right: 5px;
+    #hero .content {
+        margin-left: 10%;
     }
 
-    /* Персонаж */
     .character {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
     .character.corner {
-        left: 10%;
+        left: 5%;
         bottom: 5%;
     }
     .character.center-bottom {
@@ -441,25 +400,51 @@ a:hover {
         transform: translateX(-50%);
     }
     .character.right-bottom {
-        left: calc(100% - 60px - 5%);
+        left: calc(100% - 80px - 5%);
         bottom: 5%;
     }
+}
 
-    /* Шрифты внутри блоков дополнительно уменьшаем */
-    .section .content p,
-    .section .content li,
-    .edu-left p,
-    .edu-right p,
-    .skill-box li,
-    .exp-box p,
-    .contact-box p {
-        font-size: 0.8rem;
+@media (max-width: 768px) and (orientation: landscape) {
+    .skill-box, .exp-box {
+        width: 140px;
+        padding: 10px;
     }
-    .skill-box h3,
-    .exp-box h3,
-    .edu-left h3,
-    .edu-right h3,
-    .contact-box h2 {
-        font-size: 1rem;
+    .edu-left, .edu-right {
+        max-width: 140px;
+        padding: 10px;
+    }
+    .contact-box {
+        max-width: 220px;
+        padding: 15px;
+    }
+    .character {
+        width: 60px;
+        height: 60px;
+    }
+    .character.right-bottom {
+        left: calc(100% - 60px - 5%);
+    }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+    .skill-box, .exp-box {
+        width: 110px;
+        padding: 8px;
+    }
+    .edu-left, .edu-right {
+        max-width: 110px;
+        padding: 8px;
+    }
+    .contact-box {
+        max-width: 160px;
+        padding: 10px;
+    }
+    .character {
+        width: 50px;
+        height: 50px;
+    }
+    .character.right-bottom {
+        left: calc(100% - 50px - 5%);
     }
 }
